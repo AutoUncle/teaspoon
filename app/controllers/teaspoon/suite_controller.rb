@@ -3,6 +3,8 @@ class Teaspoon::SuiteController < ActionController::Base
     respond_to?(:before_action) ? before_action(*args) : before_filter(*args)
   end
 
+  skip_after_action :verify_same_origin_request
+
   before :check_env
   before :prepend_fixture_paths
 
